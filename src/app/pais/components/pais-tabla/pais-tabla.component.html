@@ -1,0 +1,64 @@
+<div class='mt-8 flex flex-col'>
+    <div class='-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8'>
+        <div class='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
+            <div class='overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'>
+
+                <table class='min-w-full divide-y divide-gray-300'>
+                    <thead class='bg-gray-50'>
+                        <tr>
+                            <th scope='col'
+                                class='py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6'>
+                                #</th>
+                            <th scope='col'
+                                class='py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6'>
+                                Nombre</th>
+                            <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-gray-900'>Capital
+                            </th>
+                            <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-gray-900'>Poblacion
+                            </th>
+                            <th scope='col' class='px-3 py-3.5 text-left text-sm font-semibold text-gray-900'></th>
+
+                        </tr>
+                    </thead>
+                    <tbody class='divide-y divide-gray-200 bg-white'>
+
+                        <tr *ngFor='let pais of paises; let i= index' class="animate__animated animate__fadeIn">
+                            <td class=' whitespace-nowrap px-3 py-4 text-sm text-center text-gray-500'>
+                                <div class='text-gray-900'>{{i + 1}}</div>
+                            </td>
+                            <td class='whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6'>
+                                <div class='flex items-center'>
+                                    <div class='h-10 w-10 flex-shrink-0'>
+                                        <img class='h-10 w-10 rounded-full' [src]='pais.flags.png'
+                                            alt='pais.name.common'>
+                                    </div>
+                                    <div class='ml-4'>
+                                        <div class='font-medium text-gray-900'>{{pais.name.common}}</div>
+                                        <div class='text-gray-500'>{{pais.name.official}}</div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
+                                <div class='text-gray-900'>{{pais.capital}}</div>
+                            </td>
+                            <td class='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
+                                <div class='text-gray-900'>{{pais.population | number}}</div>
+                            </td>
+
+                            <td
+                                class='relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6'>
+                                <a [routerLink]="['/pais', pais.cca2]"
+                                    class='text-indigo-600 hover:text-indigo-900'>Ver...</a>
+                            </td>
+
+                        </tr>
+
+                      
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
